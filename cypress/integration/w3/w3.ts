@@ -25,10 +25,10 @@ Then('All links should be valid', () => {
   cy.get('a[href]').each((a) => {
     //implement check to exclude same page links
     const href = a.attr('href');
-    const hrefIncludesMailto = href?.includes('mailto');
-    const hrefIncludesTel = href?.includes('tel');
-    const hrefIncludesHash = href?.includes('#');
-    const hrefIncludesTwoDots = href?.includes('..');
+    const hrefIncludesMailto = href?.startsWith('mailto');
+    const hrefIncludesTel = href?.startsWith('tel');
+    const hrefIncludesHash = href?.startsWith('#');
+    const hrefIncludesTwoDots = href?.startsWith('..');
 
     if (
       href &&

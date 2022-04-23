@@ -1,0 +1,20 @@
+version: '3'
+services:
+  scan-chrome:
+    container_name: cypress-project
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    command: npx cypress run --browser chrome
+    volumes:
+      - ./cypress:/cypress-project/cypress
+      - ./cypress.json:/cypress-project/cypress.json
+  scan-firefox:
+    container_name: cypress-project
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    command: npx cypress run --browser firefox
+    volumes:
+      - ./cypress:/cypress-project/cypress
+      - ./cypress.json:/cypress-project/cypress.json
