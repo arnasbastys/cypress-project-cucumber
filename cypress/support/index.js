@@ -16,16 +16,5 @@
 // Import commands.js using ES2015 syntax:
 import './commands';
 
-// Cypress.on('window:before:load', (win) => {
-//   cy.stub(win.console, 'error').callsFake((msg) => {
-//     // log out to the terminal
-//     cy.now('task', 'error', msg);
-//   });
-//   cy.stub(win.console, 'warn').callsFake((msg) => {
-//     // log out to the terminal
-//     cy.now('task', 'warn', msg);
-//   });
-// });
-
 // Alternatively you can use CommonJS syntax:
-// require('./commands')
+require('cypress-terminal-report/src/installLogsCollector')();

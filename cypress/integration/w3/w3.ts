@@ -1,7 +1,7 @@
 import { Given, Then } from 'cypress-cucumber-preprocessor/steps';
 
-Given(`I open {string} page`, (url) => {
-  cy.intercept('GET', Cypress.config().baseUrl + url).as('intialPage');
+Given(`I open {string} page`, (url: string) => {
+  cy.intercept('GET', url).as('intialPage');
   cy.visit(url, {
     failOnStatusCode: false,
     onBeforeLoad(win) {
@@ -23,24 +23,23 @@ Then('All links should be valid', () => {
   });
 
   cy.get('a[href]').each((a) => {
-    //implement check to exclude same page links
     const href = a.attr('href');
-    const hrefIncludesMailto = href?.startsWith('mailto');
-    const hrefIncludesTel = href?.startsWith('tel');
-    const hrefIncludesHash = href?.startsWith('#');
-    const hrefIncludesTwoDots = href?.startsWith('..');
+    const hrefStartsWithMailto = href?.startsWith('mailto');
+    const hrefStartsWithTel = href?.startsWith('tel');
+    const hrefStartsWithHash = href?.startsWith('#');
+    const hrefStartsWithTwoDots = href?.startsWith('..');
 
     if (
       href &&
-      !hrefIncludesMailto &&
-      !hrefIncludesHash &&
-      !hrefIncludesTel &&
-      !hrefIncludesTwoDots
+      !hrefStartsWithMailto &&
+      !hrefStartsWithHash &&
+      !hrefStartsWithTel &&
+      !hrefStartsWithTwoDots
     ) {
       checkLinkStatus(href);
     }
 
-    if (hrefIncludesTwoDots) {
+    if (hrefStartsWithTwoDots) {
       cy.url().then((url) => {
         const linkToTest = `${url}/../${href}`; // hack to move up one level
         checkLinkStatus(linkToTest);
