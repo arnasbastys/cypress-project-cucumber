@@ -1,27 +1,23 @@
-name: Docker Image CI
+name: Scan chrome and firefox with docker
 
 on:
+  workflow_dispatch:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
-
   scan-chrome:
-
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v3
-    - name: Build the Docker image
-      run: docker build . && docker-compose run scan-chrome
-      
+      - uses: actions/checkout@v3
+      - name: Build the Docker image
+        run: docker build . && docker-compose run scan-chrome
+
   scan-firefox:
-
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v3
-    - name: Build the Docker image
-      run: docker build . && docker-compose run scan-firefox
+      - uses: actions/checkout@v3
+      - name: Build the Docker image
+        run: docker build . && docker-compose run scan-firefox

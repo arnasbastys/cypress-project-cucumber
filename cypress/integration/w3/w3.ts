@@ -15,37 +15,8 @@ Then('I should not see errors in the console', () => {
 });
 
 Then('All links should be valid', () => {
-  cy.get('link[href]').each((link) => {
-    const href = link.attr('href');
-    if (href) {
-      checkLinkStatus(href);
-    }
-  });
-
-  cy.get('a[href]').each((a) => {
-    const href = a.attr('href');
-    const hrefStartsWithMailto = href?.startsWith('mailto');
-    const hrefStartsWithTel = href?.startsWith('tel');
-    const hrefStartsWithHash = href?.startsWith('#');
-    const hrefStartsWithTwoDots = href?.startsWith('..');
-
-    if (
-      href &&
-      !hrefStartsWithMailto &&
-      !hrefStartsWithHash &&
-      !hrefStartsWithTel &&
-      !hrefStartsWithTwoDots
-    ) {
-      checkLinkStatus(href);
-    }
-
-    if (hrefStartsWithTwoDots) {
-      cy.url().then((url) => {
-        const linkToTest = `${url}/../${href}`; // hack to move up one level
-        checkLinkStatus(linkToTest);
-      });
-    }
-  });
+  cy.validateAllLinks('link[href]');
+  cy.validateAllLinks('a[href]');
 });
 
 Then(`Page should return status {string}`, (statusCode) => {
@@ -53,12 +24,3 @@ Then(`Page should return status {string}`, (statusCode) => {
     .its('response.statusCode')
     .should('eq', parseInt(statusCode));
 });
-
-const checkLinkStatus = (href: string) => {
-  cy.request(href).then((response) => {
-    expect(response.status).to.not.match(
-      /[4][0-9][0-9]/,
-      'Link to the page is not 4xx'
-    );
-  });
-};
