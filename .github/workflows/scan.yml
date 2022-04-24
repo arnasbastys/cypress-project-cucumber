@@ -17,7 +17,7 @@ jobs:
       - name: Archive scan results
         uses: actions/upload-artifact@v3
         with:
-          name: scan-results
+          name: scan-results-chrome
           path: logs/scanResults.json
 
   scan-firefox:
@@ -29,5 +29,5 @@ jobs:
       - name: Archive scan results
         uses: actions/upload-artifact@v3
         with:
-          name: scan-results
+          name: scan-results-firefox
           path: logs/scanResults.json
