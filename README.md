@@ -9,7 +9,7 @@ To see scan results check them on [Project GitHub Actions](https://github.com/ar
 - Select "Scan pages" step
 - You have to be logged in to GitHub to see scan logs
 
-Or check artifacts and look for "logs/scanResults.json"
+Or check artifacts on latest [workflow run](https://github.com/arnasbastys/cypress-project/actions)
 
 ## Launch scan
 
