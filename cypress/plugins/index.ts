@@ -17,6 +17,11 @@ const plugin: Cypress.PluginConfig = (on, config) => {
   const terminalReportOptions = {
     printLogsToConsole: 'always',
     routeTrimLength: 50,
+    printLogsToFile: 'always',
+    outputRoot: config.projectRoot + '/logs/',
+    outputTarget: {
+      'scanResults.json': 'json',
+    },
   };
 
   on('file:preprocessor', cucumber(cucumberOptions));

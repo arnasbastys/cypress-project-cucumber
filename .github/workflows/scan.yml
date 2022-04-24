@@ -12,12 +12,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Build the Docker image
+      - name: Scan pages
         run: docker build . && docker-compose run scan-chrome
 
   scan-firefox:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Build the Docker image
+      - name: Scan pages
         run: docker build . && docker-compose run scan-firefox

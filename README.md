@@ -2,7 +2,14 @@
 
 Cypress project to scan pages implemented with: [cypress](https://docs.cypress.io/api/table-of-contents), [cucumber](https://www.npmjs.com/package/cypress-cucumber-preprocessor), [cypress-terminal-report](https://github.com/archfz/cypress-terminal-report), [typescript](https://docs.cypress.io/guides/tooling/typescript-support#Install-TypeScript), [docker](https://github.com/cypress-io/cypress-docker-images)
 
-To see scan results check the last run on "GitHub Actions": [link](https://github.com/arnasbastys/cypress-project/actions)
+To see scan results check them on [Project GitHub Actions](https://github.com/arnasbastys/cypress-project/actions):
+
+- Click on the last workflow run
+- Chose chrome/firefox job
+- Select "Scan pages" step
+- You have to be logged in to GitHub to see scan logs
+
+Or check artifacts and look for "logs/scanResults.json"
 
 ## Launch scan
 

@@ -32,7 +32,7 @@ Cypress.Commands.add('validateAllLinks', (linkSelector) => {
     cy.request(href).then((response) => {
       expect(response.status).to.not.match(
         /[4][0-9][0-9]/,
-        'Link to the page is not 4xx'
+        `Link to the ${href} page is not 4xx`
       );
     });
   };
