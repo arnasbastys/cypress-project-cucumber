@@ -9,6 +9,7 @@ services:
     volumes:
       - ./cypress:/cypress-project/cypress
       - ./cypress.json:/cypress-project/cypress.json
+      - /logs:/cypress-project/logs
   scan-firefox:
     container_name: cypress-project
     build:
@@ -18,3 +19,4 @@ services:
     volumes:
       - ./cypress:/cypress-project/cypress
       - ./cypress.json:/cypress-project/cypress.json
+      - /logs:/cypress-project/logs
