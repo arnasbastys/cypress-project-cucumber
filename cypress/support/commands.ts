@@ -1,12 +1,10 @@
-/// <reference path='./index.d.ts' />
-
-Cypress.Commands.add('validateAllLinks', (linkSelector) => {
+Cypress.Commands.add("validateAllLinks", (linkSelector) => {
   cy.get(linkSelector).each((link) => {
-    const href = link.attr('href');
-    const hrefStartsWithMailto = href?.startsWith('mailto');
-    const hrefStartsWithTel = href?.startsWith('tel');
-    const hrefStartsWithHash = href?.startsWith('#');
-    const hrefStartsWithTwoDots = href?.startsWith('..');
+    const href = link.attr("href");
+    const hrefStartsWithMailto = href?.startsWith("mailto");
+    const hrefStartsWithTel = href?.startsWith("tel");
+    const hrefStartsWithHash = href?.startsWith("#");
+    const hrefStartsWithTwoDots = href?.startsWith("..");
 
     if (
       href &&

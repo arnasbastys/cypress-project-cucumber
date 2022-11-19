@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 services:
   scan-chrome:
     container_name: cypress-project
@@ -8,7 +8,7 @@ services:
     command: npx cypress run --browser chrome
     volumes:
       - ./cypress:/cypress-project/cypress
-      - ./cypress.json:/cypress-project/cypress.json
+      - ./cypress.config.ts:/cypress-project/cypress.config.ts
       - ./logs:/cypress-project/logs
   scan-firefox:
     container_name: cypress-project
@@ -18,5 +18,5 @@ services:
     command: npx cypress run --browser firefox
     volumes:
       - ./cypress:/cypress-project/cypress
-      - ./cypress.json:/cypress-project/cypress.json
+      - ./cypress.config.ts:/cypress-project/cypress.config.ts
       - ./logs:/cypress-project/logs
