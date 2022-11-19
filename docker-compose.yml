@@ -5,7 +5,7 @@ services:
     build:
       context: .
       dockerfile: ./Dockerfile
-    command: npx cypress run --browser chrome
+    command: pnpm cypress run --browser chrome
     volumes:
       - ./cypress:/cypress-project/cypress
       - ./cypress.config.ts:/cypress-project/cypress.config.ts
@@ -15,7 +15,7 @@ services:
     build:
       context: .
       dockerfile: ./Dockerfile
-    command: npx cypress run --browser firefox
+    command: pnpm cypress run --browser firefox
     volumes:
       - ./cypress:/cypress-project/cypress
       - ./cypress.config.ts:/cypress-project/cypress.config.ts

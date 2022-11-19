@@ -1,5 +1,6 @@
-FROM cypress/included:9.5.4
+FROM cypress/included:11.1.0
+RUN npm install -g pnpm
 RUN mkdir /cypress-project
 WORKDIR /cypress-project
 COPY . /cypress-project
-RUN pnpm ci
+RUN pnpm install --frozen-lockfile --prod
