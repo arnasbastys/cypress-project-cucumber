@@ -4,7 +4,7 @@
   "description": "Cypress project",
   "main": "index.js",
   "scripts": {
-    "test": "npx cypress run",
+    "test": "pnpm cypress run",
     "cypress:open": "pnpm cypress open"
   },
   "repository": {
